@@ -1,0 +1,6 @@
+{
+  "tests/test_inventario.py::TestInventarioEntradaSalida::test_entrada_manual_sin_ningun_token_es_aceptada": true,
+  "tests/test_inventario.py::TestInventarioEntradaSalida::test_entrada_registra_usuario_id_arbitrario_no_verificado": true,
+  "tests/test_ventas.py::TestVentasCasosLimite::test_venta_sin_token_rechazada": true,
+  "tests/test_ventas.py::TestComprasSinInventarioPrevio::test_comprar_producto_sin_inventario_previo_da_500": true
+}

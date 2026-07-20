@@ -1,0 +1,59 @@
+# ===== Entorno virtual =====
+venv/
+env/
+.venv/
+
+# ===== Variables de entorno / secretos =====
+.env
+.env.local
+.env.*.local
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+*.egg
+build/
+dist/
+
+# ===== Alembic =====
+# Las migraciones (versions/) SÍ se versionan en Git, no se ignoran.
+# Solo se ignoran archivos temporales que Alembic pudiera generar.
+
+# ===== Bases de datos locales / dumps =====
+*.sql
+*.dump
+*.db
+*.sqlite3
+
+# ===== Logs =====
+*.log
+logs/
+
+# ===== Testing / Coverage =====
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.tox/
+
+# ===== Cachés de herramientas =====
+.mypy_cache/
+.ruff_cache/
+
+# ===== Editores / IDEs =====
+.vscode/
+!.vscode/extensions.json
+.idea/
+
+# ===== Sistema operativo =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== Otros =====
+*.bak
+*.tmp
