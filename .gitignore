@@ -1,10 +1,15 @@
 # Backend
 backend/venv/
+backend/v/
 backend/__pycache__/
 backend/**/__pycache__/
 backend/**/*.pyc
 backend/.env
 backend/static/graficas/*.png
+backend/.coverage
+backend/.pytest_cache/
+backend/CACHEDIR.TAG
+backend/python
 
 # Frontend
 frontend/node_modules/
