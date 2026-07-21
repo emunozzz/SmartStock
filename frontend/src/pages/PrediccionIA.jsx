@@ -16,12 +16,19 @@ export default function PrediccionIA() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [dias, setDias] = useState(90);
 
-  useEffect(() => {
-    getPrediccionDemanda()
+  const cargarPrediccion = () => {
+    setLoading(true);
+    setError(null);
+    getPrediccionDemanda(dias)
       .then(setData)
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
+  };
+
+  useEffect(() => {
+    cargarPrediccion();
   }, []);
 
   return (
@@ -36,9 +43,29 @@ export default function PrediccionIA() {
               Proyección estimada por IA para los próximos meses.
             </p>
           </div>
-          <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium px-2.5 py-1">
-            Datos reales — Groq + Llama 3.3
-          </span>
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
+              <label className="text-sm text-slate-600">Días de historial:</label>
+              <input
+                type="number"
+                min="7"
+                max="365"
+                value={dias}
+                onChange={(e) => setDias(Number(e.target.value))}
+                className="w-20 px-2 py-1 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <button
+              onClick={cargarPrediccion}
+              disabled={loading}
+              className="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 disabled:opacity-50"
+            >
+              {loading ? "Cargando..." : "Predecir"}
+            </button>
+            <span className="inline-flex items-center rounded-full bg-emerald-50 text-emerald-700 text-xs font-medium px-2.5 py-1">
+              Groq + Llama 3.3
+            </span>
+          </div>
         </div>
 
         {loading && <p className="text-sm text-slate-400">Cargando predicción...</p>}
